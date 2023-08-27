@@ -38,6 +38,20 @@
       .box4 {
         transform: skew(15deg, 15deg);
       }
+      /* Transition */
+      .box1 {
+        /* transition-property: all;
+        transition-duration: 2s;
+        transition-delay: 1s; 
+        transition-timing-function: ease-out; */
+        transition: 2s 1s ease-out;
+      }
+      .box1:hover {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        transform: rotate(100deg);
+      }
     </style>
   </head>
   <body>
