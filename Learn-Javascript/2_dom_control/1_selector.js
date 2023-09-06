@@ -37,4 +37,5 @@ console.log('heeloItem', helloItem);
 // helloItem.style.backgroundColor = 'black';
 
 helloItem.classList.add('light');
+
 helloItem.classList.remove('dark');
