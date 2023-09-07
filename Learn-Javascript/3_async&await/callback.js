@@ -42,8 +42,9 @@ class UserStorage {
   loginUser(id, password) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        if ((id === 'ellie' && password === 'dream') ||
-            (id === 'coder' && password === 'academy')
+        if (
+          (id === 'ellie' && password === 'dream') ||
+          (id === 'coder' && password === 'academy')
         ) {
           resolve(id);
         } else {
@@ -66,10 +67,10 @@ class UserStorage {
   getRoles(user) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        if(user === 'ellie') {
-          resolve({name: 'ellie', role: 'admin'});
+        if (user === 'ellie') {
+          resolve({ name: 'ellie', role: 'admin' });
         } else if (user === 'coder') {
-          resolve({name: 'coder', role: 'dream'});
+          resolve({ name: 'coder', role: 'dream' });
         } else {
           reject(new Error('no access'));
         }
@@ -121,3 +122,24 @@ checkUser();
 //     console.log(error);
 //   }
 // )
+
+userStorage.loginUser(
+  id,
+  password,
+  (user) => {
+    userStorage.getRoles(
+      user,
+      (userWithRole) => {
+        alert(
+          `hello ${userWithRole.name}, you have a ${userWithRole.role} role`
+        );
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  },
+  (error) => {
+    console.log(error);
+  }
+);
